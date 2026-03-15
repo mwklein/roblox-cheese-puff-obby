@@ -1,0 +1,19 @@
+{
+  // ── Luau LSP (JohnnyMorganz.luau-lsp) ────────────────────────────────────
+  // Tell luau-lsp where the Rojo sourcemap is so it can resolve require() paths.
+  "luau-lsp.sourcemap.enabled": true,
+  "luau-lsp.sourcemap.rojoProjectFile": "default.project.json",
+  "luau-lsp.sourcemap.autogenerate": true,
+
+  // Pull in Roblox globals (game, workspace, Players, Instance, etc.)
+  "luau-lsp.types.roblox": true,
+
+  // Treat .luau files as Luau (not plain Lua).
+  "luau-lsp.server.filesystemWatchedFiles": "ReadWrite",
+
+  // ── StyLua formatter ─────────────────────────────────────────────────────
+  "[luau]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true
+  }
+}

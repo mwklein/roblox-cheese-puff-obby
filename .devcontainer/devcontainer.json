@@ -1,0 +1,53 @@
+{
+  "name": "Roblox Game Dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Roblox / Luau
+        "evaera.vscode-rojo",
+        "JohnnyMorganz.luau-lsp",
+        "Kampfkarren.selene-vscode",
+        "JohnnyMorganz.stylua",
+
+        // AI assistants
+        "anthropic.claude-code",
+        "github.copilot",
+        "github.copilot-chat",
+        "continue.continue",
+
+        // GitHub
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+
+        // General quality-of-life
+        "editorconfig.editorconfig",
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "JohnnyMorganz.stylua",
+        "[lua]": {
+          "editor.defaultFormatter": "JohnnyMorganz.stylua"
+        },
+        "luau-lsp.sourcemap.enabled": true,
+        "luau-lsp.sourcemap.autogenerate": true,
+        "luau-lsp.sourcemap.rojoProjectFile": "default.project.json"
+      }
+    }
+  },
+  "forwardPorts": [
+    34872
+  ],
+  "portsAttributes": {
+    "34872": {
+      "label": "Rojo sync server",
+      "onAutoForward": "notify"
+    }
+  },
+  "remoteUser": "vscode"
+}
