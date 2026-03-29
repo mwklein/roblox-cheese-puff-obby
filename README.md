@@ -63,7 +63,7 @@ The client never mutates game state — it only receives events and updates the 
 ### Folder Structure
 
 ```
-cheeto-puff-obby/
+roblox-cheese-puff-obby/
 ├── default.project.json        # Rojo project config
 ├── README.md
 └── src/
@@ -73,8 +73,12 @@ cheeto-puff-obby/
     │   └── ZoneManager.server.luau     # Touch wiring, zone logic, One Puff
     ├── client/                 # StarterPlayerScripts
     │   └── HUDController.client.luau   # HUD updates, zone transitions
-    └── shared/                 # ReplicatedStorage
-        └── PlayerData.luau             # Schema, constants, sanitisation
+    ├── shared/                 # ReplicatedStorage
+    │   └── PlayerData.luau             # Schema, constants, sanitisation
+    └── tests/                  # ServerScriptService/Server/Tests
+        ├── DataManagerLogic.spec.luau
+        ├── PlayerData.spec.luau
+        └── TestRunner.server.luau
 ```
 
 ### Data Schema
@@ -115,8 +119,8 @@ Data is loaded on `PlayerAdded`, saved on `PlayerRemoving`, and auto-saved every
 ### Install
 
 ```bash
-git clone https://github.com/your-username/cheeto-puff-obby.git
-cd cheeto-puff-obby
+git clone https://github.com/your-username/roblox-cheese-puff-obby.git
+cd roblox-cheese-puff-obby
 ```
 
 ### Serve to Studio
@@ -126,7 +130,7 @@ rojo serve
 ```
 
 Then in Roblox Studio:
-1. Open the place file (`CheetoPuffObby.rbxl`)
+1. Open the place file (`cheese-puff-obby.rbxl`)
 2. Click **Plugins** tab → **Rojo** → **Connect**
 3. Confirm scripts appear under `ServerScriptService/Server/` in the Explorer
 
@@ -142,7 +146,7 @@ This only applies to Studio. Published games have DataStore access by default.
 
 ## Studio Setup
 
-These objects must exist in the place file for scripts to function. They are not synced by Rojo — they live in the `.rbxl` file.
+The objects below must exist in the place file for scripts to function. `ReplicatedStorage/Shared` and `ReplicatedStorage/Events` are synced by Rojo via `default.project.json`. The `Workspace/Zones`, `Workspace/Lobby`, and `StarterGui` objects are **not** synced — they must be built manually in the `.rbxl` file.
 
 ### ReplicatedStorage
 
@@ -150,7 +154,7 @@ These objects must exist in the place file for scripts to function. They are not
 ReplicatedStorage/
 ├── Shared/
 │   └── PlayerData          (ModuleScript — synced by Rojo)
-└── Events/
+└── Events/                 (synced by Rojo)
     ├── CollectPuff          (RemoteEvent)
     ├── ZoneComplete         (RemoteEvent)
     └── AnnounceOneP         (RemoteEvent)
