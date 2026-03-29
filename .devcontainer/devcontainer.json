@@ -49,5 +49,6 @@
       "onAutoForward": "notify"
     }
   },
+  "postCreateCommand": "wally install",
   "remoteUser": "vscode"
 }

@@ -1,6 +1,23 @@
-# Project place file
+# ── Roblox place files ────────────────────────────────────────────────────────
+# Binary place file is committed; exclude the XML variant and Studio lock files
 /roblox-cheese-puff-obby.rbxlx
-
-# Roblox Studio lock files
 /*.rbxlx.lock
 /*.rbxl.lock
+
+# ── Rojo ─────────────────────────────────────────────────────────────────────
+sourcemap.json
+
+# ── Wally (package manager) ───────────────────────────────────────────────────
+# Installed packages — restored by `wally install`
+/Packages/
+/ServerPackages/
+# DevPackages contains test-only deps; commit wally.lock but not the packages
+/DevPackages/
+
+# ── Aftman (toolchain manager) ────────────────────────────────────────────────
+.aftman/
+
+# ── OS / editor noise ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/settings.json

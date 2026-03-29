@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(aftman list)",
+      "Bash(selene --version)",
+      "Bash(rojo --version)",
+      "Bash(stylua --version)",
+      "Bash(ls /workspaces/roblox-cheese-puff-obby/*.toml)",
+      "Bash(selene src/)",
+      "Bash(curl -s \"https://api.github.com/repos/Kampfkarren/selene/releases/latest\")",
+      "Bash(aftman install)",
+      "Bash(ls /workspaces/roblox-cheese-puff-obby/*.json)",
+      "Bash(rojo sourcemap default.project.json -o sourcemap.json)",
+      "Bash(python3 -m json.tool)",
+      "Bash(grep -o '\"\"Events\"\"' sourcemap.json)",
+      "Bash(grep -o '\"\"CollectPuff\"\"' sourcemap.json)"
+    ]
+  }
+}

@@ -159,7 +159,16 @@ end
 
 -- CollectPuff: server → this client only
 -- Args: puffType (string), isRare (boolean)
-evCollectPuff.OnClientEvent:Connect(function(puffType: string, isRare: boolean)
+evCollectPuff.OnClientEvent:Connect(function(puffType: string, isRare: boolean, puffPart: BasePart?)
+    if puffPart and puffPart:IsA("BasePart") then
+        local tween = TweenService:Create(
+            puffPart,
+            TweenInfo.new(0.2, Enum.EasingStyle.Back, Enum.EasingDirection.In),
+            { Size = Vector3.new(0.1, 0.1, 0.1), LocalTransparencyModifier = 1 }
+        )
+        tween:Play()
+    end
+
     -- Update local state.
     clientState.totalPuffs += 1
     if isRare then

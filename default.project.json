@@ -7,6 +7,9 @@
       "Shared": {
         "$path": "src/shared"
       },
+      "DevPackages": {
+        "$path": "DevPackages"
+      },
       "Events": {
         "$className": "Folder",
         "CollectPuff": {
@@ -23,7 +26,10 @@
 
     "ServerScriptService": {
       "Server": {
-        "$path": "src/server"
+        "$path": "src/server",
+        "Tests": {
+          "$path": "src/tests"
+        }
       }
     },
 
