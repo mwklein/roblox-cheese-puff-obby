@@ -70,7 +70,8 @@ roblox-cheese-puff-obby/
     ├── server/                 # ServerScriptService
     │   ├── DataManager.server.luau     # DataStore load/save, session cache
     │   ├── DataManagerAPI.luau         # Shared API bridge (ModuleScript)
-    │   └── ZoneManager.server.luau     # Touch wiring, zone logic, One Puff
+    │   ├── ZoneManager.server.luau     # Touch wiring, zone logic, One Puff
+    │   └── DevReset.server.luau       # DEV ONLY — auto-resets data on join
     ├── client/                 # StarterPlayerScripts
     │   └── HUDController.client.luau   # HUD updates, zone transitions
     ├── shared/                 # ReplicatedStorage
@@ -255,6 +256,8 @@ Tests run automatically on server start and print results to the Studio Output p
 ---
 
 ## Publishing
+
+> **Warning:** `src/server/DevReset.server.luau` must be deleted before publishing to players. It resets player data on every join for whitelisted dev usernames.
 
 1. **File → Publish to Roblox As** — required before DataStore works in Studio
 2. Set game name, description, and thumbnail in the publish dialog

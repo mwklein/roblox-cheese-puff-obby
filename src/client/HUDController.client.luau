@@ -161,9 +161,10 @@ end
 -- Args: puffType (string), isRare (boolean)
 evCollectPuff.OnClientEvent:Connect(function(puffType: string, isRare: boolean, puffPart: BasePart?)
     if puffPart and puffPart:IsA("BasePart") then
+        local shrinkDuration = if isRare then 0.3 else 0.2
         local tween = TweenService:Create(
             puffPart,
-            TweenInfo.new(0.2, Enum.EasingStyle.Back, Enum.EasingDirection.In),
+            TweenInfo.new(shrinkDuration, Enum.EasingStyle.Back, Enum.EasingDirection.In),
             { Size = Vector3.new(0.1, 0.1, 0.1), LocalTransparencyModifier = 1 }
         )
         tween:Play()

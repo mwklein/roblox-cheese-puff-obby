@@ -159,7 +159,7 @@ local function wireRarePuff(puffPart: BasePart, puffKey: string, zoneNumber: num
 		end
 
 		-- Notify the player.
-		evCollectPuff:FireClient(player, puffKey, true)
+		evCollectPuff:FireClient(player, puffKey, true, puffPart)
 		evZoneComplete:FireClient(player, zoneNumber)
 
 		-- Save immediately on zone completion.

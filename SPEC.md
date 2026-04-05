@@ -146,6 +146,14 @@ These must exist in StarterGui before HUDController will work:
 5. The mystery white square visible in the current screenshot should be
    identified and removed — it is likely an unnamed placeholder Frame
 
+## Development Tools
+
+### DevReset (src/server/DevReset.server.luau)
+- **Development only** — must be deleted before publishing to players
+- Automatically resets player data to zone 1 on join for whitelisted usernames
+- Only affects accounts listed in `DEV_USERNAMES` — safe if a real player joins a test session
+- Syncs via Rojo like any other script, persists across Studio sessions
+
 ## Key Implementation Notes
 - Never trust the client — validate all RemoteEvent inputs server-side
 - DataStore key format: "player_" .. player.UserId
