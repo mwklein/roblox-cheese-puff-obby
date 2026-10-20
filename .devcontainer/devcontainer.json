@@ -49,9 +49,15 @@
       "onAutoForward": "notify"
     }
   },
+  // Maintainer's machine: OrbStack + 1Password SSH agent.
+  // OrbStack exposes the host's agent at /run/host-services/ssh-auth.sock.
   "mounts": [
-    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached,readonly"
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached,readonly",
+    "source=/run/host-services/ssh-auth.sock,target=/run/ssh-agent.sock,type=bind"
   ],
+  "remoteEnv": {
+    "SSH_AUTH_SOCK": "/run/ssh-agent.sock"
+  },
   "postCreateCommand": "wally install",
   "remoteUser": "vscode"
 }
