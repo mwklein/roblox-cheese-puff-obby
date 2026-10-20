@@ -55,8 +55,11 @@
     "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached,readonly",
     "source=/run/host-services/ssh-auth.sock,target=/run/ssh-agent.sock,type=bind"
   ],
+  // The mounted ~/.ssh/config pins IdentityAgent to the macOS 1Password
+  // socket, which overrides SSH_AUTH_SOCK, so git needs it overridden too.
   "remoteEnv": {
-    "SSH_AUTH_SOCK": "/run/ssh-agent.sock"
+    "SSH_AUTH_SOCK": "/run/ssh-agent.sock",
+    "GIT_SSH_COMMAND": "ssh -o IdentityAgent=/run/ssh-agent.sock"
   },
   "postCreateCommand": "wally install",
   "remoteUser": "vscode"
